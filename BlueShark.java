@@ -1,3 +1,4 @@
+
 public class BlueShark extends Shark {
 
     public BlueShark(String name) {
@@ -6,6 +7,6 @@ public class BlueShark extends Shark {
 
     @Override
     public boolean canEat(Animal animal) {
-        return animal instanceof Shark || animal.getType().equals("fish");
+        return animal != this && animal.getType().equals("fish");
     }
 }

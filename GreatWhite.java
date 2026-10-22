@@ -1,3 +1,4 @@
+
 public class GreatWhite extends Shark {
 
     public GreatWhite(String name) {
@@ -6,7 +7,7 @@ public class GreatWhite extends Shark {
 
     @Override
     public boolean canEat(Animal animal) {
-        return !(animal instanceof Canary);
+        return animal != this && !(animal instanceof Canary);
     }
 
     @Override
@@ -14,6 +15,11 @@ public class GreatWhite extends Shark {
         if (animal instanceof Canary) {
             System.out.println(getName()
                     + ": Next time you try to give me that to eat, I'll eat you instead.");
+            return;
+        }
+
+        if (!canEat(animal)) {
+            System.out.println(getName() + ": It's not worth my time.");
             return;
         }
 
